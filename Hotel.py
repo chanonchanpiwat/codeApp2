@@ -125,6 +125,7 @@ class Hotel:
             room = self.hotel[room_str]
             if room.isBooked == True:
                 self.key.returnKey(room.KeyID)
+                del self.roomKey[room.KeyID]
                 room.checkOut()
                 checkout_room.append(room.roomNumber)
         return f'Room {convertToStr(checkout_room)} are checkout.'
